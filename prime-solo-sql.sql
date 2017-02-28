@@ -18,7 +18,7 @@ UPDATE "syntax_practice" SET "account_balance"=10.00 WHERE "username" = 'anthony
 SELECT * FROM "syntax_practice" WHERE "transactions_attempted" > 9;
 
 -- 5. Get the username and account balance of the 3 users with the highest balances,
---sort highest to lowest balance. NOTE: Research LIMIT
+-- sort highest to lowest balance. NOTE: Research LIMIT
 
 SELECT * FROM "syntax_practice" ORDER BY "account_balance" LIMIT 10 OFFSET 7;
 
@@ -30,7 +30,11 @@ SELECT * FROM "syntax_practice" ORDER BY "username", "account_balance" LIMIT 3;
 
 SELECT * FROM "syntax_practice" WHERE "account_balance" > 100;
 
--- 8. Add a new record
+-- 8. Add a new records
 
+INSERT INTO syntax_practice (username, city, transactions_completed, transactions_attempted, account_balance)
+VALUES ('chris', 'apple valley', '1', '450000', '9999999.99');
 
--- 9. The bank is losing money in Miami and Phoenix and needs to unload low transaction customers: Delete users that reside in miami OR phoenix and have completed fewer than 5 transactions
+-- 9. The bank is losing money in Miami and Phoenix and needs to unload low transaction customers: Delete users that reside in miami OR phoenix and have completed fewer than 5 transactions.
+
+DELETE FROM syntax_practice WHERE city LIKE '%miami%' OR city LIKE '%pheonix&' AND transactions_completed < 5;
