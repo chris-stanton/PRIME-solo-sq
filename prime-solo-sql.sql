@@ -12,6 +12,8 @@ SELECT * FROM "syntax_practice" WHERE "username" LIKE '%a%';
 SELECT * FROM "syntax_practice" WHERE "account_balance" = 0;
 SELECT * FROM "syntax_practice" WHERE "transactions_attempted" = 0;
 UPDATE "syntax_practice" SET "account_balance"=10.00 WHERE "username" = 'anthony';
+    --chris went this way in lecture
+--SELECT * FROM "syntax_practice" WHERE "account_balance" = 0 AND "transactions_attempted" = 0;
 
 -- 4. Select all users that have attempted 9 or more transactions
 
@@ -20,11 +22,11 @@ SELECT * FROM "syntax_practice" WHERE "transactions_attempted" > 9;
 -- 5. Get the username and account balance of the 3 users with the highest balances,
 -- sort highest to lowest balance. NOTE: Research LIMIT
 
-SELECT * FROM "syntax_practice" ORDER BY "account_balance" LIMIT 10 OFFSET 7;
+SELECT "username", "account_balance" FROM "syntax_practice" ORDER BY "account_balance" DESC LIMIT 3;
 
 -- 6. Get the username and account balance of the 3 users with the lowest balances, sort lowest to highest balance
-            --not sure abput this one
-SELECT * FROM "syntax_practice" ORDER BY "username", "account_balance" LIMIT 3;
+
+SELECT "username", "account_balance" FROM "syntax_practice" ORDER BY "account_balance" ASC LIMIT 3;
 
 -- 7. Get all users with account balances that are more than $100
 
